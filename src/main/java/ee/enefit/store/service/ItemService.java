@@ -14,6 +14,7 @@ import ee.enefit.store.messaging.ItemSoldEvent;
 import ee.enefit.store.messaging.ItemSoldProducer;
 import ee.enefit.store.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +54,16 @@ public class ItemService {
                 .stream()
                 .map(this::mapToResponse)
                 .toList();
+    }
+
+    @Transactional
+    public boolean deleteItem(UUID id) {
+        try {
+            itemRepository.deleteById(id);
+            return true;
+        } catch (EmptyResultDataAccessException ex) {
+            return false;
+        }
     }
 
     public Optional<ItemResponse> updateItem(UUID id, ItemUpdateRequest request) {
