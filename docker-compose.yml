@@ -6,9 +6,6 @@ services:
       POSTGRES_DB: store
       POSTGRES_USER: store
       POSTGRES_PASSWORD: store
-      #KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      #KAFKA_BOOTSTRAP_SERVERS: 127.0.0.1:9092
-      #KAFKA_BOOTSTRAP_SERVERS: localhost:9092
     ports:
       - "5432:5432"
     healthcheck:
