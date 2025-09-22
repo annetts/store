@@ -66,6 +66,7 @@ public class ItemService {
         }
     }
 
+    @Transactional
     public Optional<ItemResponse> updateItem(UUID id, ItemUpdateRequest request) {
         Optional<ItemEntity> optionalEntity = itemRepository.findById(id);
         if (optionalEntity.isEmpty()) {
