@@ -2,7 +2,9 @@ package ee.enefit.store.controller;
 
 import ee.enefit.store.messaging.ItemSoldEvent;
 import ee.enefit.store.service.ItemService;
-import ee.enefit.store.dto.*;
+import ee.enefit.store.dto.ItemRequest;
+import ee.enefit.store.dto.ItemResponse;
+import ee.enefit.store.dto.ItemUpdateRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
